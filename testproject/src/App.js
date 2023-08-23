@@ -1,41 +1,34 @@
 import React from "react";
-import Expense from "./components/Expense";
+import "./styles.css";
+import Card from "./components/Card";
+// don't change the Component name "App"
 
-
-export default function App() {
-  const expenses = [
-    {
-      id: "e1",
-      title: "Toilet Paper",
-      amount: 94.12,
-      date: new Date(2020, 7, 14),
-    },
-    {
-      id: "e2",
-      title: "New TV",
-      amount: 799.49,
-      date: new Date(2021, 2, 12),
-    },
-    {
-      id: "e3",
-      title: "Car Insurance",
-      amount: 294.67,
-      date: new Date(2021, 2, 28),
-    },
-    {
-      id: "e4",
-      title: "New Desk (Wooden)",
-      amount: 450,
-      date: new Date(2021, 5, 12),
-    },
-  ];
+ export default function App(props) {
   return (
-    <div>
-      <h2>Let's get started!</h2>
-      {/* <p>This is also visible!</p> */}
-          <Expense 
-          array={expenses}
-          />
-    </div>
+    <Card>
+      <h1>Todos</h1>
+
+      <div className="card">
+        <p>
+          Please note: Below are just the most important todos - feel free to
+          add more.
+        </p>
+      </div>
+
+      <ul>
+        <li className="todo">
+          <div className="card">
+            <h2>Learn React</h2>
+            <p>Learn React fundamentals & explore core concepts</p>
+          </div>
+        </li>
+        <li className="todo">
+          <div className="card">
+            <h2>Practice React</h2>
+            <p>Apply your knowledge & build demo projects</p>
+          </div>
+        </li>
+      </ul>
+    </Card>
   );
 }
