@@ -5,30 +5,32 @@ import Card from "./components/Card";
 
  export default function App(props) {
   return (
-    <Card>
+    <div>
       <h1>Todos</h1>
 
-      <div className="card">
+      <Card className="card">
         <p>
           Please note: Below are just the most important todos - feel free to
           add more.
         </p>
-      </div>
+      </Card>
 
       <ul>
-        <li className="todo">
-          <div className="card">
+        <li>
+        <Card className="todo">
+         
             <h2>Learn React</h2>
             <p>Learn React fundamentals & explore core concepts</p>
-          </div>
+          </Card>
         </li>
-        <li className="todo">
-          <div className="card">
+        <li>
+          <Card className="todo">
+         
             <h2>Practice React</h2>
             <p>Apply your knowledge & build demo projects</p>
-          </div>
+          </Card>
         </li>
       </ul>
-    </Card>
+    </div>
   );
 }
