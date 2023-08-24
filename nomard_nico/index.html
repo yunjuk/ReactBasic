@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+
+<html>
+  <body>
+    <span>Total Clicks: 0</span>
+    <button id = btn>Click me</button>
+  </body>
+  <script>
+    let counter =0;  
+    const button = document.getElementById("btn");
+     //querySelector와 다르게, id를 설정하고 getElementById를써서 
+     //특정한 버튼 한 개만 고를 수 있게 함, 쿼리셀렉터는 버튼이 여러개가 되면 안됨. 
+     const span = document.querySelector("span"); //스팬을 찾아서 스팬 상수에 넣어줌. 
+   
+     function handleClick(){
+        counter = counter + 1; // 이건 콘솔 창 열어서 counter라고 치면, 아래에 얼마나 눌렀는지 숫자가 반영됨
+        // console.log("i have a been clicked");  //이건 클릭 누른 개수만큼 이 문장이 늘어남
+        span.innerText = `Total Clicks: ${counter}`; // 세진 카운터를 스팬 안의 innerText에 넣어줌 
+                                  //innerText는 요소 안의 text값들만 가져옴 즉, span 안의 텍스트 값만 가져온 것. 
+    } // 맨 위에 <span>Total Clicks라는 문장이 있는데, 카운터에 값이 들어가면서, 스팬이 카운터의 
+        //숫자로 대체가 됨. 그래서 문장이 사라지는 것 처럼 보였는데, 수정 후에 span.innerText="Total Click"+counter로 바꿔주면, 좀 더 구체적으로 보임
+    //핸들클릭 함수를 만들어줘서 문장을 콘솔에서 볼 수 있게 만듦.
+    button.addEventListener("click", handleClick) //버튼으로 클릭 이벤트 감지
+    //"click"이벤트를 감지한 후에, 함수 이름을 적어줘서 함수를 실행하게 함. 
+    //왜 함수 이름 옆에 괄호가 없냐면, addEventListner의 괄호 안에는 
+    //addEventListner(감지할 이벤트, 실행할 함수) 이렇게 들어가게 정해진 "콜백 함수"이기 때문임
+  </script>
+</html>
