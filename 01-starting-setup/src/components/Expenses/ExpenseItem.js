@@ -2,7 +2,7 @@
 import React from "react";
 import "./ExpenseItem.css";
 import ExpenseDate from "./ExpenseDate";
-import Card from "../UI/Card";
+import Card from "../../UI/Card";
 //card를 사용하고있음 그전에는 컴포넌트에 같이있었지만 지금은 ui에 있으니까
 //디렉토리가 한단계올라감
 

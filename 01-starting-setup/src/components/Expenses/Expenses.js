@@ -1,11 +1,13 @@
 import React from "react";
 import ExpenseItem from "./ExpenseItem";
 import  "./Expenses.css"
-import Card from "../UI/Card";
+import Card from "../../UI/Card";
 
 
 
-const Expense = (props) => { //일단 props를 가져와야 array를 쓸 수 있음. 왜냐면 프로그램에서 읽기에는 일단 선언이 먼저 되어야 함. 
+const Expense = (props) => {
+   //일단 props를 가져와야 array를 쓸 수 있음. 왜냐면 프로그램에서 읽기에는 일단 선언이 먼저 되어야 함. 
+   console.log(props.array[0].id)
 return (
     <Card className="expenses">
        <ExpenseItem  id={props.array[0].id} //그 다음에 이렇게 props.array로 가져와서 원하는 부분을 호출해서 씀. 
