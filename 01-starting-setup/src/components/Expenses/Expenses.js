@@ -19,11 +19,16 @@ const Expense = (props) => {
     <Card className="expenses">
     <ExpensesFilter 
     selected={filteredYear}
-    onChangeFilter ={filterChangeHandler} />
-    {props.items.map((expens) =>
-    (<ExpenseItem title={expens.title}/>))}
+    onChangeFilter ={filterChangeHandler}
+     />
+    {props.items.map((expens, index) =>
+    (<ExpenseItem 
+    key ={index}
+    title={expens.title}
+    amount={expens.amount}
+    date={expens.date}/>))}
     
-       <ExpenseItem  id={props.array[0].id} //그 다음에 이렇게 props.array로 가져와서 원하는 부분을 호출해서 씀. 
+       {/* <ExpenseItem  id={props.array[0].id} //그 다음에 이렇게 props.array로 가져와서 원하는 부분을 호출해서 씀. 
             title={props.array[0].title}
             amount={props.array[0].amount}
             date={props.array[0].date}
@@ -45,7 +50,7 @@ const Expense = (props) => {
             title={props.array[3].title}
             amount={props.array[3].amount}
             date={props.array[3].date}
-          />
+          /> */}
           </Card>
           </div>
 )

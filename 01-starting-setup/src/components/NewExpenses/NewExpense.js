@@ -5,9 +5,9 @@ import ExpenseForm from "./ExpenseForm";
 //ExpenseItem에서 새로운 비용을 입력받는 컴포넌트
 
 const NewExpense = (props) => {
-  const onSaveExpenseData = (data) => {
+  const onSaveExpenseData = (enteredExpenseData) => {
     const expenseData = {
-      ...data,
+      ...enteredExpenseData,
       id: Math.random().toString(),
     };
     props.onAddExpense(expenseData);
