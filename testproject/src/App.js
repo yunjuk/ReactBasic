@@ -2,7 +2,7 @@
 import './styles.css';
 import React,{useState} from 'react';
 import Expenses from "./components/Expense";
-import NewExpense  from './components/Expense/NewExpenses/NewExpense';
+import NewExpense  from '../../01-starting-setup/src/components/NewExpenses/NewExpense';
 import Expense from './components/Expense';
 
 // don't change the Component name "App"

@@ -1,9 +1,8 @@
 import React from "react";
 import ExpenseItem from "./components/Expenses/ExpenseItem";
 import Expense from "./components/Expenses/Expenses";
-import NewExpense from "./components/NewExpenses/ExpenseForm";
+import NewExpense from "./components/NewExpenses/NewExpense";
 //js를 가져오는것 css는 뒤에 꼭 .css를 붙임
-
 
 const App = () => {
   const expenses = [
@@ -32,21 +31,18 @@ const App = () => {
       date: new Date(2021, 5, 12),
     },
   ];
-  
+
+  const addExpenseHandler = (expense) => {
+    console.log("In App.js");
+    console.log(expense);
+  };
+
   return (
-
-    
-    
-      <div>
-          <Expense
-          array={expenses}
-          
-          />
-          <NewExpense />
-      </div>
+    <div>
+      <NewExpense onAddExpense={addExpenseHandler} />
+      <Expense items={expenses} />
+    </div>
   );
-
- 
-}
+};
 
 export default App;

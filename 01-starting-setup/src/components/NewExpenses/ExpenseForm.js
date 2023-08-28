@@ -4,65 +4,83 @@ import { useState } from "react";
 
 //ExpenseItem에서 새로운 비용을 입력받는 컴포넌트
 
-const ExpenseForm = () => {
-  // const [enterdTitle, setEnteredTitle] = useState('')
-  // const[enteredAmount, setEnteredAmount] = useState('');
-  // const [enteredDate, setEnteredDate] = useState('')
+const ExpenseForm = (props) => {
+  const [enterdTitle, setEnteredTitle] = useState("");
+  const [enteredAmount, setEnteredAmount] = useState("");
+  const [enteredDate, setEnteredDate] = useState("");
 
-  const [userInput, setUserInput] = useState({
-    EnterdTitle: "",
-    EnteredAmount: "",
-    EnteredDate: "",
-  });
-
+  console.log('ExpenseForm : '+props)
   const titleChangeHandler = (event) => {
-    // setUserInput({
-    //     ...userInput,
-    //   EnteredTitle: event.target.value,
-    setUserInput((prevState) => {
-        return {...prevState,enterdTitle: event.target.value}
-    });
+    setEnteredTitle(event.target.value);
   };
 
   const AmountChangeHandler = (event) => {
-    setUserInput({
-        ...userInput,
-      EnteredAmount: event.target.value,
-    });
+    setEnteredAmount(event.target.value);
   };
 
   const dateChangeHandler = (event) => {
-       setUserInput({
-        ...userInput,
-       EnteredDate: event.target.value
-       });
+    setEnteredDate(event.target.value);
+  };
+
+  // const inputChangeHandler = (identifier, value) => {
+  //   if(identifier === 'title'){
+  //     setEnteredTitle(value);
+  //   }else if(identifier === 'date'){
+  //     setEnteredDate(value);
+  //   }else{
+  //     setEnteredAmount(value);
+  //   }
+  // };
+
+  const submitHandler = (event) => {
+    event.preventDefault();
+    const expenseData = {
+      title: enterdTitle,
+      amount: enteredAmount,
+      date: new Date(enteredDate),
     };
-       
+
+    console.log(expenseData);
+    props.onSaveExpenseData(expenseData);
+    setEnteredTitle("");
+    setEnteredDate("");
+    setEnteredAmount("");
+  };
   return (
-    <form>
+    <form onSubmit={submitHandler}>
       <div className="new-expense__controls">
         <div className="new-expense__control">
           <label>Title</label>
-          <input type="text" onChange={titleChangeHandler}></input>
+          <input
+            type="text"
+            value={enterdTitle}
+            onChange={titleChangeHandler}
+          />
         </div>
         <div className="new-expense__control">
           <label>Amount</label>
-          <input type="number" min="0.01" step="0.01"></input>
+          <input
+            type="number"
+            min="0.01"
+            step="0.01"
+            value={enteredAmount}
+            onChange={AmountChangeHandler}
+          />
         </div>
         <div className="new-expense__control">
           <label>Date</label>
           <input
             type="date"
-            min="2019-10-10"
-            step="0.01"
+            min="2019-01-01"
             max="2022-12-31"
-          ></input>
-        </div>
-        <div className="new-expense__actions">
-          <button type="submit">Add Expense</button>
+            value={enteredDate || ""}
+            onChange={dateChangeHandler}
+          />
         </div>
       </div>
-      <p>{userInput.enterdTitle}</p>
+      <div className="new-expense__actions">
+        <button type="submit">Add Expense</button>
+      </div>
     </form>
   );
 };
