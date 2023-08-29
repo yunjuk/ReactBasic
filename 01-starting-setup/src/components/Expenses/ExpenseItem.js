@@ -25,6 +25,7 @@ import Card from "../../UI/Card";
   
 
   return (
+    <li>
     <Card className="expense-item">
         {/* <div className="">{props.date.toLocaleDateString()}</div> */}
         <ExpenseDate date={props.date} />
@@ -34,6 +35,7 @@ import Card from "../../UI/Card";
         <div className="expense-item__price">${props.amount}</div>
     {/* <button onClick = {clickHanler}>Change Title</button> */}
     </Card>
+    </li>
   );
 };
 

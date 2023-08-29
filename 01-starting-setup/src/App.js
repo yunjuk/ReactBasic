@@ -2,6 +2,7 @@ import React, {useState} from "react";
 import ExpenseItem from "./components/Expenses/ExpenseItem";
 import Expense from "./components/Expenses/Expenses";
 import NewExpense from "./components/NewExpenses/NewExpense";
+import ExpensesChart from "./components/Expenses/ExpensesChart";
 //js를 가져오는것 css는 뒤에 꼭 .css를 붙임
 
 
@@ -37,11 +38,12 @@ import NewExpense from "./components/NewExpenses/NewExpense";
     setExpenses((prevExpenses) => {
       return [expense, ...prevExpenses]; //이러면 항상 최신의 데이터를 가져옴
     })
-  };
+  };  
 
   return (
     <div>
       <NewExpense onAddExpense={addExpenseHandler} />
+      <ExpensesChart expenses = {expenses}/>
       <Expense items={expenses} />
     </div>
   );
