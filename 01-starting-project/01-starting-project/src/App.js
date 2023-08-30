@@ -32,7 +32,10 @@ const router = createBrowserRouter([
         path: "/", //이제 이런 경로가 들어오면 홈페이지컴포넌트가 실행됨.
         element: <HomePage />,
       }, //슬래시: 가장 상위 디렉토리
-      { path: "./Products", element: <ProductsPage /> },
+      { path: "./Products",
+       element: <ProductsPage /> },
+       {path: "/products/:productId",
+       element: <ProductDetailPage />}
     ],
   },
 ]);
